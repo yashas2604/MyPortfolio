@@ -1,5 +1,4 @@
-import Link from "next/link"
-import { Github, Linkedin, Mail, Twitter } from "lucide-react"
+import { Github, Linkedin, Mail, Instagram } from "lucide-react"
 
 export function Footer() {
   return (
@@ -11,25 +10,40 @@ export function Footer() {
           </div>
 
           <div className="flex space-x-6">
-            <Link href="https://github.com/yashas2604" className="text-muted-foreground hover:text-foreground transition-colors">
+            <a
+              href="https://github.com/yashas2604"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Github className="h-5 w-5" />
               <span className="sr-only">GitHub</span>
-            </Link>
-            <Link href="https://linkedin.com" className="text-muted-foreground hover:text-foreground transition-colors">
+            </a>
+            <a
+              href="https://linkedin.com/in/yashas2604/"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Linkedin className="h-5 w-5" />
               <span className="sr-only">LinkedIn</span>
-            </Link>
-            <Link href="https://twitter.com" className="text-muted-foreground hover:text-foreground transition-colors">
-              <Twitter className="h-5 w-5" />
-              <span className="sr-only">Twitter</span>
-            </Link>
-            <Link
-              href="mailto:alex@example.com"
+            </a>
+            <a
+              href="https://instagram.com/yashas.m.shetty/"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Instagram className="h-5 w-5" />
+              <span className="sr-only">Instagram</span>
+            </a>
+            <a
+              href="mailto:yashas2604@gmail.com"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               <Mail className="h-5 w-5" />
-              <span className="sr-only">Email</span>
-            </Link>
+              <span className="sr-only">Gmail</span>
+            </a>
           </div>
         </div>
       </div>

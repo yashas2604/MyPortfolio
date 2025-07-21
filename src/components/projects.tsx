@@ -19,7 +19,7 @@ export function Projects() {
       title: "Breast Cancer Detection Model",
       description:
         "Developed a breast cancer detection model using VGG16 and TensorFlow to classify histopathological images with high accuracy.",
-      technologies: ["React", "Node.js", "Socket.io", "MongoDB"],
+      technologies: ["VGG16", "TensorFlow", "Python"],
       liveUrl: "",
       githubUrl: "https://github.com",
     },
@@ -53,7 +53,7 @@ export function Projects() {
       description:
         "Implemented an audio fingerprinting system in Python using Librosa and SciPy to recognize songs by matching extracted frequency patterns.",
       image: "/placeholder.svg?height=300&width=400",
-      technologies: ["React Native", "Firebase", "Node.js", "Cloudinary"],
+      technologies: ["Librosa", "SciPy", "Python"],
       liveUrl: "",
       githubUrl: "https://github.com",
     },

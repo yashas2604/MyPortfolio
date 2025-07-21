@@ -18,9 +18,9 @@ export function Hero() {
         </div>
 
         <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6">
-          Hi, I&apos;m        
+          Hi, I&apos;m{" "}         
           <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-            Yashas Shetty
+             Yashas Shetty
           </span>
         </h1>
 
@@ -38,11 +38,11 @@ export function Hero() {
         </div>
 
         <div className="flex justify-center space-x-6 mb-12">
-          <Link href="https://github.com/yashas2604" className="text-muted-foreground hover:text-foreground transition-colors">
+          <Link href="https://github.com/yashas2604" className="text-muted-foreground hover:text-foreground transition-colors" target="_blank" rel="noopener noreferrer">
             <Github className="h-6 w-6" />
             <span className="sr-only">GitHub</span>
           </Link>
-          <Link href="https://linkedin.com/in/yashas2604/" className="text-muted-foreground hover:text-foreground transition-colors">
+          <Link href="https://linkedin.com/in/yashas2604/" className="text-muted-foreground hover:text-foreground transition-colors" target="_blank" rel="noopener noreferrer">
             <Linkedin className="h-6 w-6" />
             <span className="sr-only">LinkedIn</span>
           </Link>
