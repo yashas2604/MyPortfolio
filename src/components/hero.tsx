@@ -1,21 +1,24 @@
 import { Button } from "@/components/ui/button"
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 export function Hero() {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="text-center max-w-4xl mx-auto">
         <div className="mb-8">
-          <img
+          <Image
           src="/profile.jpeg"
           alt="Profile"
+          width={128} // You can adjust width and height as needed
+          height={128}
           className="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-primary/20"
           />
         </div>
 
         <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6">
-          Hi, I&apos;m{" "}          
+          Hi, I&apos;m        
           <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
             Yashas Shetty
           </span>
