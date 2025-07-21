@@ -11,11 +11,11 @@ export function Hero() {
           src="/profile.jpeg"
           alt="Profile"
           className="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-primary/20"
-/>
+          />
         </div>
 
         <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6">
-          Hi, I'm{" "}
+          Hi, I&apos;m{" "}          
           <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
             Yashas Shetty
           </span>
