@@ -59,7 +59,7 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden py-4 border-t">
+          <nav className="md:hidden py-4 border-t flex flex-col items-end px-4">
             {navItems.map((item) => (
               <Link
                 key={item.href}
