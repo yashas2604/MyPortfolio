@@ -1,4 +1,6 @@
 import { Github, Linkedin, Mail, Instagram } from "lucide-react"
+import { VisitorCounter } from "@/components/visitorcounter"
+
 
 export function Footer() {
   return (
@@ -44,6 +46,7 @@ export function Footer() {
               <Mail className="h-5 w-5" />
               <span className="sr-only">Gmail</span>
             </a>
+            <VisitorCounter />
           </div>
         </div>
       </div>
