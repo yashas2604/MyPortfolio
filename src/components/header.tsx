@@ -23,7 +23,6 @@ export function Header() {
     { href: "#skills", label: "Skills" },
     { href: "#projects", label: "Projects" },
     { href: "#contact", label: "Contact" },
-    {href: "#resume",  label:"Resume"}
   ]
 
   return (
@@ -39,7 +38,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-8 items-center">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -49,6 +48,11 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
+            <a href="/yashas-resume.pdf" download className="ml-4">
+              <Button variant="destructive" size="sm">
+                Resume
+              </Button>
+            </a>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -70,6 +74,11 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
+            <a href="/resume.pdf" download className="ml-4">
+              <Button variant="destructive" size="sm">
+               Resume
+              </Button>
+            </a>
           </nav>
         )}
       </div>
