@@ -10,7 +10,7 @@ export function Projects() {
       title: "Proximity detection and safety gear monitoring system",
       description:
         "Built a YOLOv5-powered system for real-time proximity detection and safety gear monitoring to enhance site safety in industrial zones.",
-      image: "/placeholder.svg?height=300&width=400",
+      image: "/projects/proximity.png",
       technologies: ["YoloV5", "Computer Vision", "Python"],
       liveUrl: "",
       githubUrl: "https://github.com",
@@ -19,6 +19,7 @@ export function Projects() {
       title: "Breast Cancer Detection Model",
       description:
         "Developed a breast cancer detection model using VGG16 and TensorFlow to classify histopathological images with high accuracy.",
+      image: "/projects/breastcancer.png",
       technologies: ["VGG16", "TensorFlow", "Python"],
       liveUrl: "",
       githubUrl: "https://github.com",
@@ -35,15 +36,15 @@ export function Projects() {
     {
       title: "Portfolio Website",
       description: "A modern, responsive portfolio website showcasing projects and skills.",
-      image: "/placeholder.svg?height=300&width=400",
+      image: "/projects/portfolio.png?",
       technologies: ["Next.js", "Tailwind CSS",],
       liveUrl: "https://yashas2604.vercel.app/",
-      githubUrl: "https://github.com",
+      githubUrl: "https://github.com/yashas2604/MyPortfolio",
     },
     {
       title: "Feedback form web app for College",
       description: "Building a dynamic feedback form web app to collect, store, and analyze user feedback using React and Supabase.",
-      image: "/placeholder.svg?height=300&width=400",
+      image: "/projects/feedback.png?",
       technologies: ["React", "Supabase"],
       liveUrl: "",
       githubUrl: "https://github.com",
@@ -52,7 +53,7 @@ export function Projects() {
       title: "SongRecogniser",
       description:
         "Implemented an audio fingerprinting system in Python using Librosa and SciPy to recognize songs by matching extracted frequency patterns.",
-      image: "/placeholder.svg?height=300&width=400",
+      image: "/projects/song.png?",
       technologies: ["Librosa", "SciPy", "Python"],
       liveUrl: "",
       githubUrl: "https://github.com",
@@ -74,10 +75,10 @@ export function Projects() {
             <Card key={index} className="overflow-hidden">
               <div className="aspect-video overflow-hidden">
                 <Image
-                src={project.image || "/placeholder.svg"}
+                src={project.image}
                 alt={project.title}
-                width={400} // adjust to your desired width
-                height={300} // adjust to your desired height
+                width={400} 
+                height={300} 
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 unoptimized={project.image ? false : true} // Optional: skip optimization for external or fallback
                 />
