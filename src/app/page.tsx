@@ -5,6 +5,7 @@ import { About } from "@/components/about"
 import { Projects } from "@/components/projects"
 // import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
+import Countdown from "@/components/countdown" 
 
 export default function Portfolio() {
   return (
@@ -12,6 +13,9 @@ export default function Portfolio() {
       <Header />
       <main>
         <Hero />
+       <main>
+        <Countdown targetDate="2026-01-01T00:00:00" title="Countdown to New Year 2026 " />
+      </main> 
         <About />
         {/* <Skills /> */}
         <Projects />
