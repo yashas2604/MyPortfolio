@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Code, Palette, Zap } from "lucide-react"
-
+import Image from "next/image"
 export function About() {
   return (
     <section id="about" className="py-20 px-4 sm:px-6 lg:px-8">
@@ -13,15 +13,18 @@ export function About() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-4 md:gap-x-6 md:gap-y-2 mb-16 items-start">
+        <div className="grid md:grid-cols-2 gap-1 md:gap-x-2 md:gap-y-2 mb-16 items-start ">
           <div className="flex justify-center md:justify-start">
-            <img
+            <Image
               src="/about.jpeg"
-              alt="bike"
-              className="w-full max-w-xs h-auto rounded-lg shadow-lg"
+              alt="Workspace"
+              width={385}
+              height={385}
+              className="rounded-lg shadow-lg"
             />
+
           </div>
-          <div className="space-y-6 max-w-prose">
+          <div className="space-y-8 md:space-y-6">
             <p className="text-lg text-muted-foreground">
               My journey into AI/ML started with a deep curiosity about how intelligent systems work. I’ve worked on
               projects like safety gear detection using YOLOv5, RAG-based PDF QA systems using Gemini API, and a
