@@ -6,10 +6,12 @@ import { Projects } from "@/components/projects"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
 import Countdown from "@/components/countdown" 
+import { Analytics } from "@vercel/analytics/next"
 
 export default function Portfolio() {
   return (
     <div className="min-h-screen bg-background">
+    <Analytics />
       <Header />
       <main>
         <Hero />
