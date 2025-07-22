@@ -1,3 +1,4 @@
+// /* eslint-disable react/no-unescaped-entities */
 // "use client"
 
 // import type React from "react"
@@ -7,7 +8,7 @@
 // import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 // import { Input } from "@/components/ui/input"
 // import { Textarea } from "@/components/ui/textarea"
-// import { Mail, MapPin, Phone } from "lucide-react"
+// import { Mail, MapPin } from "lucide-react"
 
 // export function Contact() {
 //   const [formData, setFormData] = useState({
@@ -44,7 +45,7 @@
 //         <div className="grid lg:grid-cols-2 gap-12">
 //           <div className="space-y-8">
 //             <div>
-//               <h3 className="text-2xl font-semibold mb-4">Let's work together</h3>
+//               <h3 className="text-2xl font-semibold mb-4">Let's build connections</h3>
 //               <p className="text-muted-foreground mb-6">
 //                 I'm always interested in new opportunities and exciting projects. Whether you have a question or just
 //                 want to say hi, feel free to reach out!
@@ -54,15 +55,11 @@
 //             <div className="space-y-4">
 //               <div className="flex items-center space-x-3">
 //                 <Mail className="h-5 w-5 text-primary" />
-//                 <span>alex.johnson@example.com</span>
-//               </div>
-//               <div className="flex items-center space-x-3">
-//                 <Phone className="h-5 w-5 text-primary" />
-//                 <span>+1 (555) 123-4567</span>
+//                 <span>yashas2604@gmail.com</span>
 //               </div>
 //               <div className="flex items-center space-x-3">
 //                 <MapPin className="h-5 w-5 text-primary" />
-//                 <span>San Francisco, CA</span>
+//                 <span>Bengaluru, KA</span>
 //               </div>
 //             </div>
 //           </div>
@@ -108,3 +105,80 @@
 //     </section>
 //   )
 // }
+'use client'
+
+import { useState } from "react"
+
+export function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  })
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+
+    try {
+      const res = await fetch("/api/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+
+      if (res.ok) {
+        alert("Message sent successfully!")
+        setFormData({ name: "", email: "", message: "" })
+      } else {
+        alert("Failed to send message.")
+      }
+    } catch (error) {
+      console.error("Error sending message:", error)
+      alert("An error occurred.")
+    }
+  }
+
+  return (
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <div className="max-w-2xl mx-auto">
+        <h2 className="text-3xl font-bold text-center mb-8">Contact Me</h2>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="Your Name"
+            required
+            className="w-full border p-3 rounded"
+          />
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Your Email"
+            required
+            className="w-full border p-3 rounded"
+          />
+          <textarea
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            placeholder="Your Message"
+            required
+            rows={5}
+            className="w-full border p-3 rounded"
+          />
+          <button type="submit" className="bg-black text-white py-2 px-4 rounded">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </section>
+  )
+}
