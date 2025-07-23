@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
+import { ModeToggle } from "@/components/modetoggle"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -48,7 +49,8 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <a href="/yashas-resume.pdf" download className="ml-4">
+            <ModeToggle />
+            <a href="/yashas-resume.pdf" target="_blank" rel="noopener noreferrer" className="ml-4">
               <Button variant="destructive" size="sm">
                 Resume
               </Button>
@@ -74,7 +76,7 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <a href="/resume.pdf" download className="ml-4">
+            <a href="/yashas-resume.pdf" target="_blank" rel ="noopener noreferrer" className="ml-4">
               <Button variant="destructive" size="sm">
                Resume
               </Button>

@@ -6,7 +6,8 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, MapPin } from "lucide-react"
+import { ArrowUp, Mail, MapPin } from "lucide-react"
+import Link from "next/link"
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -72,7 +73,6 @@ export function Contact() {
               </div>
             </div>
           </div>
-
           <Card>
             <CardHeader>
               <CardTitle>Send me a message</CardTitle>
@@ -110,6 +110,14 @@ export function Contact() {
             </CardContent>
           </Card>
         </div>
+      </div>
+      <div className="text-center max-w-4xl mx-auto mt-16">
+        <Link
+        href="#hero"
+        className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors mx-2">
+        <ArrowUp className="h-5 w-5 animate-bounce" />
+        <span className="sr-only">Scroll up</span>
+        </Link>
       </div>
     </section>
   )

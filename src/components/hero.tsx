@@ -57,8 +57,7 @@ export function Hero() {
 
         <Link
           href="#about"
-          className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors"
-        >
+          className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors">
           <ArrowDown className="h-5 w-5 animate-bounce" />
           <span className="sr-only">Scroll down</span>
         </Link>
