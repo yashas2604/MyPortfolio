@@ -56,7 +56,7 @@ export function Projects() {
       image: "/projects/song.png?",
       technologies: ["Librosa", "SciPy", "Python"],
       liveUrl: "",
-      githubUrl: "https://github.com",
+      githubUrl: "https://github.com/yashas2604/song-recognizer",
     },
   ]
 
