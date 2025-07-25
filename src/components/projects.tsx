@@ -22,7 +22,7 @@ export function Projects() {
       image: "/projects/breastcancer.png",
       technologies: ["VGG16", "TensorFlow", "Python"],
       liveUrl: "",
-      githubUrl: "https://github.com",
+      githubUrl: "https://github.com/yashas2604/breast-cancer-detection",
     },
     // {
     //   title: "Weather Dashboard",

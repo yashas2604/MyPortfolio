@@ -65,7 +65,9 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
+          
           <nav className="md:hidden py-4 border-t flex flex-col items-end px-4">
+            <ModeToggle />
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -76,6 +78,7 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
+            
             <a href="/yashas-resume.pdf" target="_blank" rel ="noopener noreferrer" className="ml-4">
               <Button variant="destructive" size="sm">
                Resume

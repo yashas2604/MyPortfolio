@@ -11,7 +11,7 @@ export function Hero() {
           <Image
           src="/profile.jpeg"
           alt="Profile"
-          width={128} // You can adjust width and height as needed
+          width={128}
           height={128}
           className="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-primary/20"
           />
