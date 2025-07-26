@@ -1,5 +1,5 @@
 import { Github, Linkedin, Mail, Instagram } from "lucide-react"
-import { VisitorCounter } from "@/components/visitorcounter"
+// import { VisitorCounter } from "@/components/visitorcounter"
 
 
 export function Footer() {
@@ -46,7 +46,7 @@ export function Footer() {
               <Mail className="h-5 w-5" />
               <span className="sr-only">Gmail</span>
             </a>
-            <VisitorCounter />
+            {/* <VisitorCounter /> */}
           </div>
         </div>
       </div>

@@ -3,11 +3,18 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { ArrowUp, Mail, MapPin } from "lucide-react"
 import Link from "next/link"
+import { Meteors } from "@/components/magicui/meteors"
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -16,7 +23,9 @@ export function Contact() {
     message: "",
   })
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
@@ -43,22 +52,32 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/50">
-      <div className="container mx-auto max-w-6xl">
+    <section
+      id="contact"
+      className="relative py-20 px-4 sm:px-6 lg:px-8 bg-muted/50 overflow-hidden"
+    >
+      {/* Animated background meteors */}
+      <Meteors number={50} angle={65} />
+
+      <div className="container mx-auto max-w-6xl relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">Get In Touch</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Have a project in mind or want to collaborate? I'd love to hear from you!
+            Have a project in mind or want to collaborate? I'd love to hear
+            from you!
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-semibold mb-4">Let's build connections</h3>
+              <h3 className="text-2xl font-semibold mb-4">
+                Let's build connections
+              </h3>
               <p className="text-muted-foreground mb-6">
-                I'm always interested in new opportunities and exciting projects. Whether you have a question or just
-                want to say hi, feel free to reach out!
+                I'm always interested in new opportunities and exciting
+                projects. Whether you have a question or just want to say hi,
+                feel free to reach out!
               </p>
             </div>
 
@@ -73,10 +92,14 @@ export function Contact() {
               </div>
             </div>
           </div>
-          <Card>
+
+          <Card className="relative z-10">
             <CardHeader>
               <CardTitle>Send me a message</CardTitle>
-              <CardDescription>Fill out the form below and I'll get back to you as soon as possible.</CardDescription>
+              <CardDescription>
+                Fill out the form below and I'll get back to you as soon as
+                possible.
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -110,14 +133,16 @@ export function Contact() {
             </CardContent>
           </Card>
         </div>
-      </div>
-      <div className="text-center max-w-4xl mx-auto mt-16">
-        <Link
-        href="#hero"
-        className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors mx-2">
-        <ArrowUp className="h-5 w-5 animate-bounce" />
-        <span className="sr-only">Scroll up</span>
-        </Link>
+
+        <div className="text-center max-w-4xl mx-auto mt-16">
+          <Link
+            href="#hero"
+            className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors mx-2"
+          >
+            <ArrowUp className="h-5 w-5 animate-bounce" />
+            <span className="sr-only">Scroll up</span>
+          </Link>
+        </div>
       </div>
     </section>
   )

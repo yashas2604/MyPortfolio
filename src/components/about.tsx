@@ -1,6 +1,8 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Code, Palette, Zap } from "lucide-react"
 import Image from "next/image"
+import { PixelImage } from "@/components/magicui/pixel-image";
+
 export function About() {
   return (
     <section id="about" className="py-20 px-4 sm:px-6 lg:px-8">
@@ -16,7 +18,7 @@ export function About() {
         <div className="grid md:grid-cols-2 gap-1 md:gap-x-2 md:gap-y-2 mb-16 items-start ">
           <div className="flex justify-center md:justify-start">
             <Image
-              src="/about.jpeg"
+              src="/myself.jpeg"
               alt="Workspace"
               width={385}
               height={385}
@@ -27,8 +29,7 @@ export function About() {
           <div className="space-y-8 md:space-y-6">
             <p className="text-lg text-muted-foreground">
               My journey into AI/ML started with a deep curiosity about how intelligent systems work. I’ve worked on
-              projects like safety gear detection using YOLOv5, RAG-based PDF QA systems using Gemini API, and a
-              placement tracking dashboard to simplify college workflows.
+              projects like safety gear detection using YOLOv5 and a placement tracking dashboard to simplify college workflows.
             </p>
             <p className="text-lg text-muted-foreground">
               I enjoy exploring deep learning, computer vision, and building intuitive full-stack applications with
