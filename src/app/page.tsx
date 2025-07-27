@@ -15,7 +15,7 @@ export default function Portfolio() {
 
     <Analytics />
       <Header />
-            <ScrollProgress className="top -[65px]"/>
+            <ScrollProgress/>
 
       <main>
         <Hero />
