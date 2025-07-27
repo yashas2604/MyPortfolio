@@ -7,12 +7,16 @@ import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
 import Countdown from "@/components/countdown" 
 import { Analytics } from "@vercel/analytics/next"
+import { ScrollProgress } from "@/components/magicui/scroll-progress";
 
 export default function Portfolio() {
   return (
     <div className="min-h-screen bg-background">
+
     <Analytics />
       <Header />
+            <ScrollProgress className="top -[65px]"/>
+
       <main>
         <Hero />
        <main>
