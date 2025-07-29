@@ -1,7 +1,7 @@
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
 import { About } from "@/components/about"
-// import { Skills } from "@/components/skills"
+import { Skills } from "@/components/skills"
 import { Projects } from "@/components/projects"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
@@ -15,15 +15,16 @@ export default function Portfolio() {
 
     <Analytics />
       <Header />
-            <ScrollProgress/>
+      <ScrollProgress/>
 
       <main>
         <Hero />
        <main>
+        
         <Countdown targetDate="2026-01-01T00:00:00" title="Countdown to New Year 2026 " />
       </main> 
         <About />
-        {/* <Skills /> */}
+        <Skills />
         <Projects />
         <Contact />
       </main>

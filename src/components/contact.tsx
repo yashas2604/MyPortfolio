@@ -54,7 +54,7 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="relative py-20 px-4 sm:px-6 lg:px-8 bg-muted/50 overflow-hidden"
+      className="relative py-20 px-4 sm:px-6 lg:px-8 bg/50 overflow-hidden"
     >
       {/* Animated background meteors */}
       <Meteors number={50} angle={65} />
