@@ -1,7 +1,9 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Button } from "@/components/ui/button"
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { TextAnimate } from "@/components/magicui/text-animate";
 
 export function Hero() {
   return (
@@ -24,9 +26,11 @@ export function Hero() {
           </span>
         </h1>
 
-        <p className="text-xl sm:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-          Im an AIML student with a keen interest in Data Science, NLP and practical ML applications.
-        </p>
+        {/* <p className="text-xl sm:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto"> */}
+          <TextAnimate animation="blurIn" by="character" duration={2}once className="text-xl sm:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto"> 
+          I'm an AIML student with a keen interest in Data Science, NLP & practical ML applications.
+          </TextAnimate>
+        {/* </p> */}
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
           <Button size="lg" asChild>

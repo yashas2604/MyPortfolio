@@ -50,7 +50,7 @@ export function Header() {
               </Link>
             ))}
             <ModeToggle />
-            <a href="/yashas-resume.pdf" target="_blank" rel="noopener noreferrer" className="ml-4">
+            <a href="/yashas-resume-v4.pdf" target="_blank" rel="noopener noreferrer" className="ml-4">
               <Button variant="destructive" size="sm">
                 Resume
               </Button>
@@ -79,7 +79,7 @@ export function Header() {
               </Link>
             ))}
             
-            <a href="/yashas-resume.pdf" target="_blank" rel ="noopener noreferrer" className="ml-4">
+            <a href="/yashas-resume-v4.pdf" target="_blank" rel ="noopener noreferrer" className="ml-4">
               <Button variant="destructive" size="sm">
                Resume
               </Button>

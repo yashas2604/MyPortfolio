@@ -1,7 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Code, Palette, Zap } from "lucide-react"
 import Image from "next/image"
-import { PixelImage } from "@/components/magicui/pixel-image";
 
 export function About() {
   return (
