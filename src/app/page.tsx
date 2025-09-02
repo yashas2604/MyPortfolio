@@ -16,13 +16,12 @@ export default function Portfolio() {
     <Analytics />
       <Header />
       <ScrollProgress/>
-
       <main>
         <Hero />
        <main>
         
         <Countdown targetDate="2026-01-01T00:00:00" title="Countdown to New Year 2026 " />
-      </main> 
+       </main> 
         <About />
         <Skills />
         <Projects />

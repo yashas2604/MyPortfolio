@@ -37,9 +37,9 @@ export function Projects() {
       title: "Rag chatbot ",
       description:
         "Developed a Retrieval-Augmented Generation (RAG) chatbot using LangChain and Ollama to provide context-aware responses by integrating document retrieval with language generation.",
-      image: "/placeholder.svg?height=300&width=400",
+      image: "/projects/rag.png?",
       technologies: ["LangChain", "Ollama", "Streamlit", "Python"],
-      liveUrl: "https://example.com",
+      liveUrl: "",
       githubUrl: "https://github.com/yashas2604/RAG_Chatbot",
     },
     {

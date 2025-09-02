@@ -126,6 +126,26 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+.cursor {
+  pointer-events: none;
+  position: fixed;
+  display: block;
+  border-radius: 50%;
+  mix-blend-mode: difference; /* key for inverting */
+  top: 0;
+  left: 0;
+  z-index: 9999999999;
+}
+
+.circle {
+  position: absolute;
+  display: block;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  background-color: #ffffff; /* pure white for clean invert */
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
