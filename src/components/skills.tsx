@@ -26,7 +26,7 @@ export function Skills() {
     },
     {
       title: "Web Development",
-      skills: ["Next.js", "TypeScript", "Tailwind CSS"],
+      skills: ["Html", "CSS", "JS", "Next.js", "Tailwind CSS"],
     },
     {
       title: "Tools & Technologies",
