@@ -11,25 +11,25 @@ export function Hero() {
       <div className="text-center max-w-4xl mx-auto">
         <div className="mb-8">
           <Image
-          src="/profile.jpeg"
-          alt="Profile"
-          width={128}
-          height={128}
-          className="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-primary/20"
+            src="/profile.jpeg"
+            alt="Profile"
+            width={128}
+            height={128}
+            className="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-primary/20"
           />
         </div>
 
         <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6">
-          Hi, I&apos;m{" "}         
+          Hi, I&apos;m{" "}
           <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-             Yashas Shetty
+            Yashas Shetty
           </span>
         </h1>
 
         {/* <p className="text-xl sm:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto"> */}
-          <TextAnimate animation="blurIn" by="character" duration={2}once className="text-xl sm:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto"> 
-          I'm an AIML student with a keen interest in Data Science, NLP & practical ML applications.
-          </TextAnimate>
+        <TextAnimate animation="blurIn" by="character" duration={2} once className="text-xl sm:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+          I'm an AIML student with a keen interest in GEN AI and building AI agents.
+        </TextAnimate>
         {/* </p> */}
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
