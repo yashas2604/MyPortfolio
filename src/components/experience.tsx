@@ -169,7 +169,7 @@ export function Experience() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto font-light"
           >
-            My professional journey and the key projects I've built along the way.
+            My professional journey and the key projects I&apos;ve built along the way.
           </motion.p>
         </div>
 

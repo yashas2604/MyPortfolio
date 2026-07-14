@@ -1,6 +1,6 @@
 "use client"
 
-import React, { PropsWithChildren, useRef, useState } from "react"
+import React, { PropsWithChildren, useRef, useContext, createContext, useState, useEffect } from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import {
   motion,
@@ -8,8 +8,8 @@ import {
   useMotionValue,
   useSpring,
   useTransform,
-} from "motion/react"
-import type { MotionProps } from "motion/react"
+} from "framer-motion"
+import type { MotionProps } from "framer-motion"
 
 import { cn } from "@/lib/utils"
 
@@ -29,8 +29,18 @@ const DEFAULT_DISTANCE = 140
 const DEFAULT_DISABLEMAGNIFICATION = false
 
 const dockVariants = cva(
-  "supports-backdrop-blur:bg-white/10 supports-backdrop-blur:dark:bg-black/10 mx-auto mt-8 flex h-[58px] w-max items-center justify-center gap-2 rounded-2xl border p-2 backdrop-blur-md"
+  "supports-backdrop-blur:bg-white/10 supports-backdrop-blur:dark:bg-black/10 mx-auto mt-8 flex h-11 sm:h-[58px] w-max items-center justify-center gap-1 sm:gap-2 rounded-xl sm:rounded-2xl border p-1.5 sm:p-2 backdrop-blur-md"
 )
+
+interface DockContextType {
+  mouseX: MotionValue<number>
+  iconSize: number
+  iconMagnification: number
+  iconDistance: number
+  disableMagnification: boolean
+}
+
+const DockContext = createContext<DockContextType | null>(null)
 
 const Dock = React.forwardRef<HTMLDivElement, DockProps>(
   (
@@ -47,47 +57,44 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
     ref
   ) => {
     const mouseX = useMotionValue(Infinity)
+    const [isMobile, setIsMobile] = useState(false)
 
-    const renderChildren = () => {
-      return React.Children.map(children, (child) => {
-        if (React.isValidElement(child)) {
-          const typeName = (child.type as any)?.displayName || 
-                           (child.type as any)?.name || 
-                           (child.type as any)?.render?.displayName || 
-                           (child.type as any)?.render?.name || 
-                           "";
-          
-          const isSeparator = typeName.includes("Separator");
-          
-          if (!isSeparator) {
-            return React.cloneElement(child, {
-              ...(child.props as any),
-              mouseX: mouseX,
-              size: iconSize,
-              magnification: iconMagnification,
-              disableMagnification: disableMagnification,
-              distance: iconDistance,
-            })
-          }
-        }
-        return child
-      })
-    }
+    useEffect(() => {
+      const mql = window.matchMedia("(max-width: 640px)")
+      setIsMobile(mql.matches)
+      const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches)
+      mql.addEventListener("change", handler)
+      return () => mql.removeEventListener("change", handler)
+    }, [])
+
+    const activeSize = isMobile ? 24 : iconSize
+    const activeMagnification = isMobile ? 34 : iconMagnification
+    const activeDistance = isMobile ? 50 : iconDistance
 
     return (
-      <motion.div
-        ref={ref}
-        onMouseMove={(e) => mouseX.set(e.clientX)}
-        onMouseLeave={() => mouseX.set(Infinity)}
-        {...props}
-        className={cn(dockVariants({ className }), {
-          "items-start": direction === "top",
-          "items-center": direction === "middle",
-          "items-end": direction === "bottom",
-        })}
+      <DockContext.Provider
+        value={{
+          mouseX,
+          iconSize: activeSize,
+          iconMagnification: activeMagnification,
+          iconDistance: activeDistance,
+          disableMagnification,
+        }}
       >
-        {renderChildren()}
-      </motion.div>
+        <motion.div
+          ref={ref}
+          onMouseMove={(e) => mouseX.set(e.clientX)}
+          onMouseLeave={() => mouseX.set(Infinity)}
+          {...props}
+          className={cn(dockVariants({ className }), {
+            "items-start": direction === "top",
+            "items-center": direction === "middle",
+            "items-end": direction === "bottom",
+          })}
+        >
+          {children}
+        </motion.div>
+      </DockContext.Provider>
     )
   }
 )
@@ -109,10 +116,10 @@ export interface DockIconProps extends Omit<
 }
 
 const DockIcon = ({
-  size = DEFAULT_SIZE,
-  magnification = DEFAULT_MAGNIFICATION,
+  size,
+  magnification,
   disableMagnification,
-  distance = DEFAULT_DISTANCE,
+  distance,
   mouseX,
   className,
   children,
@@ -120,18 +127,29 @@ const DockIcon = ({
 }: DockIconProps) => {
   const ref = useRef<HTMLDivElement>(null)
   const defaultMouseX = useMotionValue(Infinity)
+  const context = useContext(DockContext)
 
-  const distanceCalc = useTransform(mouseX ?? defaultMouseX, (val: number) => {
+  const activeMouseX = mouseX ?? context?.mouseX ?? defaultMouseX
+  const activeSize = size ?? context?.iconSize ?? DEFAULT_SIZE
+  const activeMagnification = magnification ?? context?.iconMagnification ?? DEFAULT_MAGNIFICATION
+  const activeDistance = distance ?? context?.iconDistance ?? DEFAULT_DISTANCE
+  const activeDisableMagnification = disableMagnification ?? context?.disableMagnification ?? DEFAULT_DISABLEMAGNIFICATION
+
+  const distanceCalc = useTransform(activeMouseX, (val: number) => {
+    if (val === Infinity) return activeDistance
     const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 }
-    return val - bounds.x - bounds.width / 2
+    const dist = val - bounds.x - bounds.width / 2
+    console.log("Proximity debug:", { val, boundsX: bounds.x, dist, activeDistance })
+    return dist
   })
 
-  const targetSize = disableMagnification ? size : magnification
+  const targetSize = activeDisableMagnification ? activeSize : activeMagnification
 
   const sizeTransform = useTransform(
     distanceCalc,
-    [-distance, 0, distance],
-    [size, targetSize, size]
+    [-activeDistance, 0, activeDistance],
+    [activeSize, targetSize, activeSize],
+    { clamp: true }
   )
 
   const scaleSize = useSpring(sizeTransform, {
@@ -146,7 +164,7 @@ const DockIcon = ({
       style={{ width: scaleSize, height: scaleSize }}
       className={cn(
         "flex aspect-square cursor-pointer items-center justify-center rounded-full",
-        disableMagnification && "hover:bg-muted-foreground transition-colors",
+        activeDisableMagnification && "hover:bg-muted-foreground transition-colors",
         className
       )}
       {...props}
