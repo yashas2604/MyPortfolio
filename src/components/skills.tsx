@@ -13,16 +13,16 @@ export function Skills() {
       skills: ["Python", "PyTorch", "TensorFlow", "Scikit-learn", "Keras"],
     },
     {
+      title: "Agentic AI & Generative AI",
+      skills: ["LLMs", "Google ADK", "Prompt Engineering", "RAG", "Langchain"],
+    },
+    {
       title: "Computer Vision",
       skills: ["OpenCV", "YOLOv5", "Image Processing", "Object Detection"],
     },
     {
       title: "Deep Learning",
       skills: ["Neural Networks", "CNNs", "RNNs", "Transformers"],
-    },
-    {
-      title: "NLP & Generative AI",
-      skills: ["LLMs", "GPT-3", "BERT", "Text Generation", "RAG", "Langchain"],
     },
     {
       title: "Web Development",
@@ -50,7 +50,7 @@ export function Skills() {
           {skillCategories.map((category, index) => (
             <MagicCard
               key={index}
-              className="rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 bg-background p-0"  
+              className="rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 bg-background p-0"
               gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
             >
               <CardHeader className="pb-2">

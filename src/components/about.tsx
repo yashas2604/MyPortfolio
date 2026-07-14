@@ -17,7 +17,7 @@ export function About() {
         <div className="grid md:grid-cols-2 gap-1 md:gap-x-2 md:gap-y-2 mb-16 items-start ">
           <div className="flex justify-center md:justify-start">
             <Image
-              src="/myself.jpeg"
+              src="/pixelyashas.png"
               alt="Workspace"
               width={385}
               height={385}
@@ -40,38 +40,6 @@ export function About() {
               with my bike or with lines of code.
             </p>
           </div>
-        </div>
-
-        <div className="grid sm:grid-cols-3 gap-8">
-          <Card>
-            <CardContent className="p-6 text-center">
-              <Code className="h-12 w-12 mx-auto mb-4 text-primary" />
-              <h3 className="text-xl font-semibold mb-2">AI-Powered Code</h3>
-              <p className="text-muted-foreground">
-                Writing clean, scalable code with Python and frameworks like PyTorch and TensorFlow to power intelligent systems.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardContent className="p-6 text-center">
-              <Palette className="h-12 w-12 mx-auto mb-4 text-primary" />
-              <h3 className="text-xl font-semibold mb-2">Human-Centric Design</h3>
-              <p className="text-muted-foreground">
-                Building seamless and intuitive UIs using React and ShadCN to bridge AI insights with real-world usability.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardContent className="p-6 text-center">
-              <Zap className="h-12 w-12 mx-auto mb-4 text-primary" />
-              <h3 className="text-xl font-semibold mb-2">Performance & Impact</h3>
-              <p className="text-muted-foreground">
-                Optimizing ML models and web apps for performance and reliability — because impact matters more than just output.
-              </p>
-            </CardContent>
-          </Card>
         </div>
       </div>
     </section>
