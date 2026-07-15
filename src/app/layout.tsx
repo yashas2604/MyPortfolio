@@ -1,10 +1,8 @@
 // app/layout.tsx
 import "./globals.css"
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import { Geist, Geist_Mono, Bodoni_Moda } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
-
-
 import { Toaster } from "sonner"
 
 const geistSans = Geist({
@@ -14,6 +12,11 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+})
+
+const bodoniModa = Bodoni_Moda({
+  variable: "--font-bodoni-moda",
   subsets: ["latin"],
 })
 
@@ -30,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${bodoniModa.variable} antialiased`}
       >
         <ThemeProvider
           attribute="class"
@@ -38,8 +41,6 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-
-
           {children}
           <Toaster richColors closeButton position="bottom-right" />
         </ThemeProvider>
