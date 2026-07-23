@@ -17,10 +17,10 @@ export function FluidBg({ forceDark = false }: { forceDark?: boolean }) {
 
     const initFluid = async () => {
       if (!containerRef.current) return
-      
+
       const mod = await import("webgl-fluid-enhanced")
       if (cancelled || !containerRef.current) return
-      
+
       const WebGLFluidEnhanced = mod.default ?? mod
       instance = new WebGLFluidEnhanced(containerRef.current)
       instanceRef.current = instance
@@ -39,8 +39,8 @@ export function FluidBg({ forceDark = false }: { forceDark?: boolean }) {
         colorful: true,
         colorUpdateSpeed: 8,
         colorPalette: isLight
-          ? ["#8B3E1F", "#B96A3A", "#E89B6B", "#5C2B14", "#7A3619"]
-          : ["#F5C6A5", "#E89B6B", "#B96A3A", "#8B3E1F", "#F1E7DD"],
+          ? ["#d5ede3ff", "#25bec1ff", "#495bd1ff", "#875ad5ff", "#f901f5ff"]
+          : ["#d8f2e3ff", "#1eadc9ff", "#6163e5ff", "#8e88e1ff", "#ff24b3ff"],
         backgroundColor: isLight ? "#f5f5f3" : "#08080a",
         transparent: false,
         brightness: 0.6,
@@ -80,7 +80,7 @@ export function FluidBg({ forceDark = false }: { forceDark?: boolean }) {
       instance.setConfig({
         backgroundColor: isLight ? "#f5f5f3" : "#08080a",
         colorPalette: isLight
-          ? ["#8B3E1F", "#B96A3A", "#E89B6B", "#5C2B14", "#7A3619"]
+          ? ["#8B3E1F", "#B96A3A", "#750c73ff", "#5C2B14", "#7A3619"]
           : ["#F5C6A5", "#E89B6B", "#B96A3A", "#8B3E1F", "#F1E7DD"],
       })
     }

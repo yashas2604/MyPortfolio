@@ -56,13 +56,13 @@ export function Loader() {
       setProgress(roundedProgress)
 
       // SVG Coordinate Space Math for Wave
-      // viewBox is 1500 x 350
+      // viewBox is 1500 x 400
       const W = 1500
-      const H = 350
+      const H = 400
       const startX = -60
       const endX = W + 60
       const X_0 = startX + (roundedProgress / 100) * (endX - startX)
-      
+
       // Amplitude rises to 25px in the middle of progress and damps to 0px at start and end
       const maxAmp = 25
       const amp = maxAmp * Math.sin((roundedProgress / 100) * Math.PI)
@@ -115,46 +115,42 @@ export function Loader() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-          className="fixed inset-0 z-[99999] w-screen h-screen overflow-hidden bg-[#08080a]"
+          className="fixed inset-0 z-[99999] w-full h-full h-[100dvh] min-h-[100dvh] overflow-hidden bg-[#08080a]"
         >
-          {/* Always Dark Gold WebGL Fluid Background (Absolute to fill full parent) */}
+          {/* Always Dark Gold WebGL Fluid Background */}
           <FluidBg forceDark={true} />
 
-          {/* Interactive Text/Layout Overlay (Absolute to layer on top of background, pointer-events-none to let drags pass to WebGL) */}
-          <div className="absolute inset-0 z-10 flex flex-col justify-between p-6 sm:p-12 select-none bg-transparent text-[#f5f5f3] pointer-events-none font-mono text-xs uppercase tracking-[0.2em] w-full h-full">
-            {/* Top Header Row */}
-            <div className="flex justify-between w-full opacity-80 pointer-events-none">
-              <div></div>
-              <div>DEVELOPER</div>
-            </div>
-
-            {/* Center Name Layer */}
-            <div className="w-full max-w-7xl mx-auto flex items-center justify-center py-12 pointer-events-none">
+          {/* Name & Subtitle Layer - Direct sibling of WebGL background for flawless difference blending */}
+          <div
+            className="absolute inset-0 flex items-center justify-center p-4 sm:p-12 pointer-events-none"
+            style={{ mixBlendMode: "difference" }}
+          >
+            <div className="w-full max-w-7xl flex flex-col items-center justify-center -translate-y-4 sm:-translate-y-8">
               <svg
-                viewBox="0 0 1500 350"
-                className="w-full h-auto"
+                viewBox="0 0 1500 400"
+                className="w-full h-auto text-white"
                 style={{ overflow: "visible" }}
               >
                 <defs>
                   <clipPath id="fluid-clip">
-                    <path ref={pathRef} d="M -60 0 L -60 0 L -60 350 L -60 350 Z" />
+                    <path ref={pathRef} d="M -60 0 L -60 0 L -60 400 L -60 400 Z" />
                   </clipPath>
                 </defs>
 
                 {/* Background Outline Text */}
                 <text
                   x="50%"
-                  y="50%"
+                  y="170"
                   textAnchor="middle"
                   dominantBaseline="central"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth="1.2"
+                  strokeWidth="1.0"
                   style={{
-                    fontFamily: "var(--font-bodoni-moda), serif",
-                    fontSize: "190px",
-                    fontWeight: 500,
-                    letterSpacing: "-0.03em",
+                    fontFamily: "var(--font-cormorant), serif",
+                    fontSize: "135px",
+                    fontWeight: 300,
+                    letterSpacing: "-0.02em",
                   }}
                 >
                   YASHAS SHETTY
@@ -163,31 +159,61 @@ export function Loader() {
                 {/* Foreground Solid Filled Text (Clipped by the Wave) */}
                 <text
                   x="50%"
-                  y="50%"
+                  y="170"
                   textAnchor="middle"
                   dominantBaseline="central"
                   fill="currentColor"
                   stroke="currentColor"
-                  strokeWidth="1.2"
+                  strokeWidth="1.0"
                   clipPath="url(#fluid-clip)"
                   style={{
-                    fontFamily: "var(--font-bodoni-moda), serif",
-                    fontSize: "190px",
-                    fontWeight: 500,
-                    letterSpacing: "-0.03em",
+                    fontFamily: "var(--font-cormorant), serif",
+                    fontSize: "135px",
+                    fontWeight: 300,
+                    letterSpacing: "-0.02em",
                   }}
                 >
                   YASHAS SHETTY
                 </text>
+
+                {/* Subtitle DEVELOPER under name with same difference effect - proportional SVG coordinate space */}
+                <text
+                  x="50%"
+                  y="290"
+                  textAnchor="middle"
+                  dominantBaseline="central"
+                  fill="currentColor"
+                  style={{
+                    fontFamily: "var(--font-cormorant), serif",
+                    fontSize: "24px",
+                    fontWeight: 400,
+                    fontStyle: "italic",
+                    letterSpacing: "0.55em",
+                  }}
+                >
+                  DEVELOPER
+                </text>
               </svg>
             </div>
+          </div>
+
+          {/* Interactive Layout Overlay (Header & Bottom Rows) */}
+          <div className="absolute inset-0 z-10 flex flex-col justify-between p-4 sm:p-12 pb-[calc(2.5rem+env(safe-area-inset-bottom))] sm:pb-12 select-none bg-transparent text-[#f5f5f3] pointer-events-none font-mono text-xs uppercase tracking-[0.2em] w-full h-full">
+            {/* Top Header Row */}
+            <div className="flex justify-between w-full opacity-80 pointer-events-none">
+              <div></div>
+              <div></div>
+            </div>
+
+            {/* Empty center container to preserve spacing */}
+            <div className="flex-1" />
 
             {/* Bottom Row */}
-            <div className="flex justify-between items-end w-full pointer-events-none">
+            <div className="flex justify-between items-end w-full pointer-events-none gap-2">
               {/* Bottom Left Counter */}
               <div className="flex items-baseline leading-none">
                 <span
-                  className="text-[8vw] sm:text-[4rem] font-medium mr-3 select-none"
+                  className="text-[2.5rem] sm:text-[4rem] font-medium mr-2 sm:mr-3 select-none"
                   style={{
                     fontFamily: "var(--font-bodoni-moda), serif",
                     lineHeight: "0.9",
@@ -199,7 +225,7 @@ export function Loader() {
               </div>
 
               {/* Bottom Right Details */}
-              <div className="text-right flex flex-col gap-2 opacity-80">
+              <div className="text-right flex flex-col items-end gap-2 opacity-100 pointer-events-auto">
                 {!isLoaded ? (
                   <div className="text-[10px] opacity-60 animate-pulse">PLEASE WAIT A MOMENT</div>
                 ) : (
@@ -208,7 +234,7 @@ export function Loader() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, ease: "easeOut" }}
                     onClick={handleEnter}
-                    className="mt-1 px-5 py-2.5 rounded-full border border-[#f5f5f3]/15 bg-[#f5f5f3]/5 hover:bg-[#f5f5f3]/10 hover:border-[#f5f5f3]/35 hover:scale-105 active:scale-95 transition-all duration-300 pointer-events-auto flex items-center justify-center gap-2 cursor-pointer text-xs font-semibold tracking-widest text-[#f5f5f3]"
+                    className="mt-1 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full border border-[#f5f5f3]/25 bg-[#f5f5f3]/10 hover:bg-[#f5f5f3]/20 hover:border-[#f5f5f3]/40 hover:scale-105 active:scale-95 transition-all duration-300 pointer-events-auto flex items-center justify-center gap-2 cursor-pointer text-xs font-semibold tracking-widest text-[#f5f5f3] shadow-lg backdrop-blur-sm"
                   >
                     <span>PORTFOLIO</span>
                     <span className="text-sm font-light">→</span>
